@@ -156,7 +156,10 @@ def main():
 
     @property
     def target_os(self):
-      return tuple(set([args.target_os, host_os]))
+      # Old gclient versions require unix for linux.
+      g_target_os = 'unix' if args.target_os == 'linux' else args.target_os
+      g_host_os = 'unix' if host_os == 'linux' else host_os
+      return tuple(set([g_target_os, g_host_os]))
 
     @property
     def target_cpu(self):
