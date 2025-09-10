@@ -21,4 +21,4 @@ Build:
 
 ## License
 
-Public domain.
+Public domain
